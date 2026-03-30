@@ -1,2 +1,47 @@
-<p>stock-items works!</p>
-hellou
+<div class="stock-container">
+    <div class="name"><h3>{{name}}</h3> - <h4>({{code}})</h4></div>
+    <div class="price"
+        [class]="positiveChange ? 'positive' : 'negative'">
+        ${{price}}
+    </div>
+    <button class="btn-favorite" (click)="addToFavorite()" 
+     [disabled]="favorite">
+    Add to Favorite</button>
+</div>
+
+<!--
+
+1. {{ }} (Nội suy)
+Chiều: Code ➔ Màn hình.
+
+Dùng: Để hiện chữ (text).
+
+Ví dụ: <span>{{ name }}</span>
+
+2. [ ] (Property)
+Chiều: Code ➔ Màn hình.
+
+Dùng: Để gán thuộc tính cho thẻ (ẩn/hiện, màu sắc, link ảnh).
+
+Ví dụ: <img [src]="url">
+
+3. ( ) (Event)
+Chiều: Màn hình ➔ Code.
+
+Dùng: Để xử lý hành động (bấm, gõ).
+
+Ví dụ: <button (click)="save()">
+
+
+
+
+{{ }} được gọi là Interpolation (Nội suy văn bản)
+
+{{ }} là cú pháp đổ dữ liệu từ code ra màn hình.
+
+Cách hoạt động: Nó tìm tên biến trong file .ts, 
+lấy giá trị rồi hiển thị vào đúng vị trí đó ở file .html.
+
+Ví dụ: Code có name = 'Quy Nhơn', 
+khi viết {{ name }} thì màn hình hiện chữ Quy Nhơn.
+-->

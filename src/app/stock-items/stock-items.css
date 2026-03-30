@@ -1,0 +1,22 @@
+h3, h4{
+    margin: 0;
+    padding: 0;
+}
+.stock-container{
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    display: inline-block;
+}
+.stock-container .name{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+.positive{
+    color: lightgreen;
+}
+.negative{
+    color: red;
+}
