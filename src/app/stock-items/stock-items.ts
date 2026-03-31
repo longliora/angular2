@@ -11,7 +11,7 @@ import { Input } from '@angular/core'; // Import Input
 })
 export class StockItems implements OnInit{
 
-  @Input() stock!: Stock; // ở cha k có gì thêm nưã
+  @Input() stock!: Stock; // ở cha k có gì thêm nưã - biến này dùng để nhận giá trị từ chà truyền vào
   constructor(){
 
   }

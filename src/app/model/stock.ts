@@ -8,6 +8,7 @@ export class Stock {
         , public previousPrice: number
         , public exchange: string
     ){}
+
     isPositiveChange(): boolean{
         return this.price >= this.previousPrice;
             //nếu giá hiện tại price >= giá trước đó previus price

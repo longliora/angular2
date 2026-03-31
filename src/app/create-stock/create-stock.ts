@@ -18,6 +18,7 @@ export class CreateStock {
   public stock: Stock;
   public confirmed = false;
   public exchanges = ['NYSE', 'NASDAQ', 'OTHER'];
+  
   constructor(){
     this.stock = new Stock('test', '', 0, 0, 'NADAQ');
   }
@@ -30,11 +31,33 @@ export class CreateStock {
   }
   createStockk(stockForm: NgForm){
     console.log('Stock form', this.stock);
-    this.stockCreated.emit(Object.assign({}, this.stock));
-    if(stockForm.valid){
+
+
+    if(stockForm.valid){   
+    //  this.stockCreated.emit(Object.assign({}, this.stock));
+      
+      
+      // map lại để gửi cho stocklist
+      const mappedStock = new Stock(
+        this.stock.name,
+        this.stock.code,
+        this.stock.price,
+        this.stock.previousPrice,
+        this.stock.exchange
+      );
+  
+      // Vì favorite không nằm trong constructor nên gán riêng
+      mappedStock.favorite = this.stock.favorite;
+  
+      // PHÁT TÍN HIỆU: Gửi cái đã được map đi
+      this.stockCreated.emit(mappedStock);
+
       console.log('Creating stock', this.stock);
       this.confirm();
-    }else{
+      this.stock = new Stock('', '', 0, 0, 'NASDAQ');
+      
+    }
+    else{
       console.log('Stock Form is invalid')
     }
   }
